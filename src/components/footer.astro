@@ -27,7 +27,10 @@ const links: Array<FooterLink> = [
 ];
 ---
 
-<footer class="relative flex h-64 items-center justify-center">
+<footer class="relative flex h-64 items-center justify-center relative overflow-hidden">
+  <span class="wave"></span>
+  <span class="wave"></span>
+  <span class="wave"></span>
   <div class="absolute inset-0 overflow-hidden opacity-40">
     <HeroImage />
   </div>
@@ -47,3 +50,34 @@ const links: Array<FooterLink> = [
     }
   </ul>
 </footer>
+
+<style>
+  .wave {
+	position:absolute;
+	top:-180vw;
+	left:-50vw;
+	width:200vw;
+	height:200vw;
+	background:deepskyblue;
+	border-radius:43%;
+	filter:opacity(0.4);
+	animation:drift linear infinite;
+	transform-origin:50% 48%;
+}
+ .wave:nth-of-type(1) {
+	animation-duration:5s;
+}
+ .wave:nth-of-type(2) {
+	animation-duration:7s;
+}
+ .wave:nth-of-type(3) {
+	animation-duration:9s;
+	background-color:rgb(210, 11, 117);
+	filter:opacity(0.1);
+}
+@keyframes drift {
+	from {
+	transform:rotate(360deg);
+}
+}
+</style>
