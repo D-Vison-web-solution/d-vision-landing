@@ -1,0 +1,51 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Damon",
+    description:
+      "Damon is a skilled Full Stack Software Engineer, having a copious amount of experience in creating robust digital solutions. With professionalism, loves to bring ideas to life.",
+    icon: "mdi:computer",
+  },
+  {
+    title: "Victor",
+    description:
+      "Victor is a Front End Software Engineer with a background in product management. I love creating user-friendly products and combining my tech skills with product vision.",
+    icon: "mdi:computer", 
+  },
+  {
+    title: "Charmaine",
+    description:
+      "Charmaine is a Product Designer who loves making user-friendly and good-looking designs. I focus on what users need, making sure it's both useful and appealing.",
+    icon: "mdi:art",
+  },
+  {
+    title: "Lily",
+    description:
+      "Lily is an UX Designer passionate about creating intuitive and engaging digital experiences. I prioritise user needs, ensuring each interface fosters seamless interactions and meaningful connections.",
+    icon: "mdi:art",
+  },
+];
+---
+
+<ContentSection title="Meet The TEAM" id="meet-the-team" >
+  <Fragment slot="lead">
+    Our unified goal is to bring your <span class="text-primary">digital vision to life</span>. We craft more than just websites; We create <span class="text-primary">memorable digital experiences</span>.
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+    {
+      features.map(({ title, description, icon }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6 m-4 rounded-lg">
+          <div class="h-20 w-20 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>
