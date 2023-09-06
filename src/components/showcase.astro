@@ -17,13 +17,13 @@ const orderedSites = featuredSites.sort(
      We focus on each client's <span class="text-primary">core business and creative goals</span>, determining the <span class="text-primary">best ways</span> to achieve them.
   </Fragment>
   <div class="max-w-6xl space-y-2">
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
       {orderedSites.map((site) => <ShowcaseCard site={site} />)}
     </div>
-    <p class="text-right text-sm">
+    <!-- <p class="text-right text-sm">
       <a class="text-primary" href="https://astro.build/showcase/">
         ...and more &rarr;
       </a>
-    </p>
+    </p> -->
   </div>
 </ContentSection>
