@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+import ContentSection from "~/components/content-section.astro";
+import BlogListCard from "./blogListCard.astro";
+
+const featuredSites = await getCollection(
+  "blog",
+  ({ data }) => "featured" in data,
+);
+const orderedSites = featuredSites.sort(
+  (a, b) => a.data.featured! - b.data.featured!,
+);
+---
+
+<div class=""></div>
+

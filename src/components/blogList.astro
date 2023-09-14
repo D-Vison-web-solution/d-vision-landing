@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import ContentSection from "~/components/content-section.astro";
+import BlogListCard from "./blogListCard.astro";
+
+const featuredSites = await getCollection(
+  "blog",
+  ({ data }) => "featured" in data,
+);
+const orderedSites = featuredSites.sort(
+  (a, b) => a.data.featured! - b.data.featured!,
+);
+---
+
+<div class="my-32">
+  <ContentSection title="Blogs" id="blog_list">
+    <Fragment slot="lead">
+      We focus on each client's <span class="text-primary"
+        >core business and creative goals</span
+      >, determining the <span class="text-primary">best ways</span> to achieve
+      them.
+    </Fragment>
+    <div class="max-w-6xl space-y-2">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+        {orderedSites.map((site) => <BlogListCard site={site} />)}
+      </div>
+    </div>
+  </ContentSection>
+</div>

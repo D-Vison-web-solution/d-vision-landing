@@ -4,16 +4,16 @@ import ThemeSwitcher from "~/components/theme-switcher.astro";
 import type { NavItem } from "~/types";
 
 const navItems: Array<NavItem> = [
-  { title: "Services", url: "#services" },
-  { title: "Showcase", url: "#showcase" },
-  { title: "Meet The TEAM", url: "#meet-the-team" },
-  { title: "Blog", url: "/blogs" },
+  { title: "Services", url: "/#services" },
+  { title: "Showcase", url: "/#showcase" },
+  { title: "Meet The TEAM", url: "/#meet-the-team" },
+  { title: "Blog", url: "#" },
 ];
 ---
 
 <header
   id="page-header"
-  class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white"
+  class="fixed-header z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white"
 >
   <a class="flex items-center gap-3 hover:!text-default" href="#">
     <h1 class="sr-only">DIVISION</h1>
@@ -105,11 +105,6 @@ const navItems: Array<NavItem> = [
 
   openNavButton.addEventListener("click", openMenu);
   closeNavButton.addEventListener("click", closeMenu);
-
-  document.addEventListener("scroll", () => {
-    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-    header.classList.toggle("fixed-header", d < 0);
-  });
 
   menu.addEventListener("click", (event) => {
     if ((event.target as HTMLElement).tagName === "A") {

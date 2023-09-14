@@ -1,0 +1,31 @@
+---
+import { Picture } from "@astrojs/image/components";
+import type { CollectionEntry } from "astro:content";
+export interface Props {
+  site: CollectionEntry<"blog">;
+}
+
+const { site } = Astro.props;
+const widths = [450, 800];
+const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
+---
+
+<a class="group aspect-video hover:!text-default" href={`/blogs/${site.id}`}>
+  <Picture
+    class="group h-full w-full rounded-2xl bg-cover object-cover transition-all duration-500 group-hover:scale-110 group-hover:saturate-200 group-focus:scale-110 group-focus:opacity-20"
+    src={site.data.image}
+    widths={widths}
+    sizes={sizes}
+    aspectRatio="16:9"
+    alt={`A screenshot of ${site.id}`}
+  />
+  <div class="mt-8">
+    <h1 class="gradient-text text-center font-bold tracking-tight text-3xl">
+      {site.data.title}
+    </h1>
+    <h2>{site.data.description}</h2>
+    <h2 class="float-right opacity-50 text-sm">
+      published at {site.data.date}<h2></h2>
+    </h2>
+  </div></a
+>
